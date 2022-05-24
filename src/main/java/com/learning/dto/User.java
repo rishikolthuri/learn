@@ -5,7 +5,6 @@ public class User {
 	String cname, name, gender, password;
 	long contactNumber;
 	int roleId;
-	String email;
 
 	public int getCid() {
 		return cid;
@@ -93,11 +92,4 @@ public class User {
 		super();
 	}
 
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
 }

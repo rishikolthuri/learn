@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.learning.bo.AddressBO;
+import com.learning.bo.UserBO;
 import com.learning.dto.Address;
 import com.learning.dto.User;
 
@@ -45,7 +46,6 @@ public class UserControl extends HttpServlet {
 		String state = request.getParameter("state");
 		String country = request.getParameter("country");
 		long pincode = Long.parseLong(request.getParameter("pincode"));
-		String email = request.getParameter("email");
 		String pass = request.getParameter("upwd");
 		String role = request.getParameter("utype");
 
@@ -54,7 +54,6 @@ public class UserControl extends HttpServlet {
 		user.setName(name);
 		user.setAge(age);
 		user.setGender(gender);
-		user.setEmail(email);
 		user.setContactNumber(contact);
 		user.setPassword(pass);
 		int id = 0;
@@ -75,7 +74,7 @@ public class UserControl extends HttpServlet {
 		address.setPincode(pincode);
 		address.setState(state);
 
-		AddressBo addressBO = new AddressBO();
+		AddressBO addressBO = new AddressBO();
 		UserBO userBO = new UserBO();
 		RequestDispatcher dispatcher = null;
 		boolean b;
@@ -98,7 +97,7 @@ public class UserControl extends HttpServlet {
 		HttpSession session = request.getSession();
 		try {
 			if (u.equalsIgnoreCase("admin")) {
-				String name = request.getParameter("uname");
+				String uname = request.getParameter("uname");
 				String upwd = request.getParameter("upwd");
 				UserBO userbo = new UserBO();
 				user = userbo.validateUser(uname, upwd);
@@ -115,6 +114,7 @@ public class UserControl extends HttpServlet {
 				}
 			} else if (u.equalsIgnoreCase("vendor")) {
 				String uname = request.getParameter("uname");
+				String upwd = request.getParameter("upwd");
 				UserBO userbo = new UserBO();
 				user = userbo.validateUser(uname, upwd);
 				RequestDispatcher dispatcher = null;
@@ -127,7 +127,7 @@ public class UserControl extends HttpServlet {
 					dispatcher = request.getRequestDispatcher("homepage.jsp");
 					dispatcher.forward(request, response);
 				}
-			} else if (u.equalsIgnoreCase("subscriber")) {
+			} else if (u.equalsIgnoreCase("learner")) {
 				String uname = request.getParameter("uname");
 				String upwd = request.getParameter("upwd");
 				UserBO userbo = new UserBO();

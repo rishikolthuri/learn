@@ -108,11 +108,6 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 				<table>
 					<form action="UserControl">
 						<tr>
-							<td><label for="email">Email Id</label></td>
-							<td><input type="email" id="email" name="email"
-								placeholder="Email Id" required /></td>
-						</tr>
-						<tr>
 							<td><label for="upwd">Password</label></td>
 							<td><input type="password" id="upwd" name="upwd"
 								placeholder="Password" required /></td>
